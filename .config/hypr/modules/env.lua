@@ -1,0 +1,7 @@
+hl.env("AQ_DRM_DEVICES", "/dev/dri/card1:/dev/dri/card2")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("NVD_BACKEND", "direct")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("SDL_VIDEODRIVER", "wayland,x11")
+hl.env("MOZ_ENABLE_WAYLAND", "1")

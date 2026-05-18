@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+    hl.dsp.exec_cmd("waybar")
+    hl.dsp.exec_cmd("wl-paste --watch cliphist store")
+    hl.dsp.exec_cmd("mako")
+    hl.dsp.exec_cmd("pactl load-module module-switch-on-connect")
+end)
