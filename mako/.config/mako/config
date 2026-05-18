@@ -1,0 +1,13 @@
+default-timeout=5000
+max-visible=5
+sort=-time
+
+[urgency=low]
+border-size=1
+
+[urgency=normal]
+border-size=2
+
+[urgency=high]
+border-size=3
+ignore-timeout=1

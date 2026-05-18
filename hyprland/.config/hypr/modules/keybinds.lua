@@ -20,3 +20,8 @@ hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("foot bluetuith"))
+
+-- Screenshots
+hl.bind("Print", hl.dsp.exec_cmd("hyprcap shot region -c -w"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprcap shot monitor:active -c -w"))
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprcap shot window:active -c -w"))
