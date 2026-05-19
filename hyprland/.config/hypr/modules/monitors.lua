@@ -11,10 +11,3 @@ hl.monitor({
     position = "320x1080",
     scale    = 1.5,
 })
-
-for i = 1, 5 do
-    hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-2" })
-end
-for i = 6, 10 do
-    hl.workspace_rule({ workspace = tostring(i), monitor = "eDP-1" })
-end
