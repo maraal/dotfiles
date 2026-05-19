@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal dotfiles for a CachyOS (Arch-based) Linux system running the Hyprland Wayland compositor. Each top-level directory is a **GNU Stow package** — the subdirectory tree mirrors the target filesystem from `$HOME`.
 
+**Remote:** https://github.com/maraal/dotfiles — main branch is `main`.
+
 ### Deployment
 
 ```bash

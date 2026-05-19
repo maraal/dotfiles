@@ -1,6 +1,7 @@
 local terminal = "foot"
 
 local mainMod = "SUPER"
+local mainModShift = mainMod .. " + SHIFT"
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -10,7 +11,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainModShift .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -27,9 +28,9 @@ hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("fuzzel"))
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd("hyprcap shot region -c -w"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprcap shot monitor:active -c -w"))
-hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprcap shot window:active -c -w"))
+hl.bind(mainModShift .. " + Print", hl.dsp.exec_cmd("hyprcap shot window:active -c -w"))
 
 --Lockscreen
 
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainModShift .. " + L", hl.dsp.exec_cmd("hyprlock"))
 

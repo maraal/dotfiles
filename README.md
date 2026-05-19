@@ -83,7 +83,7 @@ dotfiles/
 | `Super + Return` | Open terminal (foot) |
 | `Super + Space` | Launcher (fuzzel) |
 | `Super + C` | Close window |
-| `Super + L` | Lock screen |
+| `Super + Shift + L` | Lock screen |
 | `Super + M` | Exit Hyprland |
 | `Super + h/j/k/l` | Focus window (vim-style) |
 | `Super + 0–9` | Switch workspace |
@@ -92,6 +92,7 @@ dotfiles/
 | `Super + B` | Bluetooth (bluetuith) |
 | `Print` | Screenshot region |
 | `Super + Print` | Screenshot active monitor |
+| `Super + Shift + Print` | Screenshot active window |
 
 ## License
 
