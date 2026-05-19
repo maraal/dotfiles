@@ -2,12 +2,24 @@ default-timeout=5000
 max-visible=5
 sort=-time
 
+font=JetBrainsMono 11
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#cba6f7
+border-radius=8
+border-size=2
+padding=12,16
+margin=8
+anchor=top-right
+
 [urgency=low]
-border-size=1
+border-color=#6c7086
+text-color=#a6adc8
 
 [urgency=normal]
-border-size=2
+border-color=#cba6f7
 
 [urgency=high]
-border-size=3
+border-color=#f38ba8
+text-color=#f38ba8
 ignore-timeout=1
