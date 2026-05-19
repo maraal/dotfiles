@@ -1,26 +1,86 @@
 {
     "layer": "top",
     "position": "top",
-    "modules-left": ["hyprland/workspaces"],
+    "height": 38,
+    "spacing": 0,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["battery", "network", "pulseaudio"],
+    "modules-right": ["cpu", "memory", "temperature", "custom/gpu", "disk", "network", "pulseaudio", "battery"],
 
     "hyprland/workspaces": {
         "format": "{id}"
     },
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+    "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
     },
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["↓", "↑"]
+
+    "clock": {
+        "format": "󰅐 {:%H:%M  ·  %a %d %b}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "interval": 2,
+        "tooltip-format": "CPU: {usage}%\nFreq: {avg_frequency}GHz"
+    },
+    "memory": {
+        "format": "󰍛 {percentage}%",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G ({percentage}%)",
+        "interval": 5
+    },
+    "temperature": {
+        "format": "󰔄 {temperatureC}°C",
+        "critical-threshold": 80,
+        "format-critical": "󰸁 {temperatureC}°C"
+    },
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu,memory.used,memory.total --format=csv,noheader,nounits | awk -F', ' '{printf \"%s%% %s°C %sMB/%sMB\", $1, $2, $3, $4}'",
+        "format": "󰾲 {}",
+        "interval": 3,
+        "tooltip": false
+    },
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "{used} / {total} ({percentage_used}%) em {path}",
+        "path": "/"
     },
     "network": {
-        "format-wifi": "{essid}",
-        "format-disconnected": "off"
+        "format-wifi": "{icon} {essid}  {signalStrength}%",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰤭 desconectado",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "interval": 5,
+        "tooltip-format": "{ipaddr} via {gwaddr}\n{signalStrength}% sinal"
     },
     "pulseaudio": {
-        "format": "vol {volume}%"
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰝟 mudo",
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-full": "⚡ {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{capacity}% — {timeTo}",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
     }
 }

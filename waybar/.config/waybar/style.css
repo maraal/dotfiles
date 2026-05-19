@@ -1,0 +1,135 @@
+/* Catppuccin Mocha — Floating Islands */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #cdd6f4;
+}
+
+/* Pílula base */
+#clock,
+#cpu,
+#memory,
+#temperature,
+#custom-gpu,
+#disk,
+#network,
+#pulseaudio,
+#battery,
+#window {
+    background-color: rgba(30, 30, 46, 0.92);
+    border-radius: 8px;
+    padding: 2px 12px;
+    margin: 5px 3px;
+}
+
+#workspaces {
+    background-color: rgba(30, 30, 46, 0.92);
+    border-radius: 8px;
+    padding: 2px 4px;
+    margin: 5px 3px;
+}
+
+#workspaces button {
+    border-radius: 6px;
+    padding: 0 8px;
+    color: #6c7086;
+    background: transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+    background-color: rgba(203, 166, 247, 0.15);
+}
+
+#workspaces button:hover {
+    background-color: rgba(203, 166, 247, 0.1);
+    color: #cba6f7;
+}
+
+#window {
+    color: #a6adc8;
+    font-style: italic;
+}
+
+#clock {
+    color: #89b4fa;
+    font-weight: bold;
+}
+
+#cpu {
+    color: #a6e3a1;
+}
+
+#memory {
+    color: #94e2d5;
+}
+
+#temperature {
+    color: #f9e2af;
+}
+
+#temperature.critical {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.15);
+}
+
+#custom-gpu {
+    color: #cba6f7;
+}
+
+#disk {
+    color: #89dceb;
+}
+
+#network {
+    color: #89b4fa;
+}
+
+#network.disconnected {
+    color: #585b70;
+}
+
+#pulseaudio {
+    color: #f5c2e7;
+}
+
+#pulseaudio.muted {
+    color: #585b70;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #f9e2af;
+}
+
+#battery.critical {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.15);
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.full {
+    color: #a6e3a1;
+}
+
+tooltip {
+    background-color: #1e1e2e;
+    border: 1px solid #313244;
+    border-radius: 8px;
+    color: #cdd6f4;
+    padding: 4px 8px;
+}
