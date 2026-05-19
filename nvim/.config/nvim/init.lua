@@ -832,6 +832,7 @@ do
 
   -- [[ Autocomplete Engine ]]
   vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' } }
+  vim.pack.add { gh 'milanglacier/minuet-ai.nvim' }
   require('blink.cmp').setup {
     keymap = {
       -- 'default' (recommended) for mappings similar to built-in completions
@@ -874,7 +875,15 @@ do
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets' },
+      default = { 'lsp', 'path', 'snippets', 'minuet'},
+      providers = {
+        minuet = {
+          name = 'minuet',
+          module = 'minuet.blink',
+          score_offset = 8,
+          async = true,
+        },
+      },
     },
 
     snippets = { preset = 'luasnip' },
@@ -984,3 +993,49 @@ end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- ============================================================
+-- SECTION C1: codecompanion 
+-- ============================================================
+
+vim.pack.add { gh 'olimorris/codecompanion.nvim' }
+vim.pack.add { gh 'nvim-lua/plenary.nvim' }
+
+
+require('codecompanion').setup({
+  adapters = {
+    ollama = function()
+      return require('codecompanion.adapters').extend('ollama', {
+        schema = {
+          model = { default = 'qwen2.5-coder:7b' },
+        },
+      })
+    end,
+  },
+  strategies = {
+    chat = { adapter = 'ollama' },
+    inline = { adapter = 'ollama' },
+  },
+})
+
+-- ============================================================
+-- SECTION C2: minuet 
+-- ============================================================
+
+require('minuet').setup({
+  provider = 'openai_fim_compatible',
+  n_completions = 1,
+  provider_options = {
+    openai_fim_compatible = {
+      api_key = 'TERM',
+      name = 'Ollama',
+      end_point = 'http://localhost:11434/v1/completions',
+      model = 'qwen2.5-coder:7b',
+      optional = {
+        max_tokens = 100,
+        top_p = 0.9,
+      },
+    },
+  },
+})
+
