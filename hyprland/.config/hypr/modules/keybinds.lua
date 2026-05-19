@@ -30,7 +30,21 @@ hl.bind("Print", hl.dsp.exec_cmd("hyprcap shot region -c -w"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprcap shot monitor:active -c -w"))
 hl.bind(mainModShift .. " + Print", hl.dsp.exec_cmd("hyprcap shot window:active -c -w"))
 
---Lockscreen
-
+-- Lockscreen
 hl.bind(mainModShift .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- Volume (Fn+F1/F2/F3 no Nitro ANV15-52)
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%-"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"))
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
+
+-- Brilho (requer: sudo pacman -S brightnessctl)
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 10%-"))
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set 10%+"))
+
+-- Controles de mídia (Fn+F5/F6/F7 ou teclas dedicadas)
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 
