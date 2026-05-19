@@ -1,4 +1,4 @@
-/* Catppuccin Mocha */
+/* Catppuccin Mocha — Floating Islands */
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 13px;
@@ -8,75 +8,89 @@
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.92);
+    background-color: transparent;
     color: #cdd6f4;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-    margin: 3px 6px;
+/* Pílula base */
+#clock,
+#cpu,
+#memory,
+#temperature,
+#custom-gpu,
+#disk,
+#network,
+#pulseaudio,
+#battery,
+#window {
+    background-color: rgba(30, 30, 46, 0.92);
+    border-radius: 8px;
+    padding: 2px 12px;
+    margin: 5px 3px;
+}
+
+#workspaces {
+    background-color: rgba(30, 30, 46, 0.92);
+    border-radius: 8px;
+    padding: 2px 4px;
+    margin: 5px 3px;
 }
 
 #workspaces button {
-    padding: 0 6px;
+    border-radius: 6px;
+    padding: 0 8px;
     color: #6c7086;
     background: transparent;
+    transition: all 0.15s ease-in-out;
 }
 
 #workspaces button.active {
     color: #cba6f7;
+    background-color: rgba(203, 166, 247, 0.15);
 }
 
 #workspaces button:hover {
-    background: rgba(203, 166, 247, 0.15);
+    background-color: rgba(203, 166, 247, 0.1);
     color: #cba6f7;
 }
 
 #window {
     color: #a6adc8;
     font-style: italic;
-    padding: 0 8px;
 }
 
 #clock {
     color: #89b4fa;
-    padding: 0 10px;
     font-weight: bold;
 }
 
 #cpu {
     color: #a6e3a1;
-    padding: 0 6px;
 }
 
 #memory {
     color: #94e2d5;
-    padding: 0 6px;
 }
 
 #temperature {
     color: #f9e2af;
-    padding: 0 6px;
 }
 
 #temperature.critical {
     color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.15);
 }
 
 #custom-gpu {
     color: #cba6f7;
-    padding: 0 6px;
 }
 
 #disk {
     color: #89dceb;
-    padding: 0 6px;
 }
 
 #network {
     color: #89b4fa;
-    padding: 0 6px;
 }
 
 #network.disconnected {
@@ -85,12 +99,14 @@ window#waybar {
 
 #pulseaudio {
     color: #f5c2e7;
-    padding: 0 6px;
+}
+
+#pulseaudio.muted {
+    color: #585b70;
 }
 
 #battery {
     color: #a6e3a1;
-    padding: 0 6px;
 }
 
 #battery.warning {
@@ -99,6 +115,7 @@ window#waybar {
 
 #battery.critical {
     color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.15);
 }
 
 #battery.charging {
@@ -110,4 +127,5 @@ tooltip {
     border: 1px solid #313244;
     border-radius: 8px;
     color: #cdd6f4;
+    padding: 4px 8px;
 }

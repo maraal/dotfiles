@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "spacing": 4,
+    "height": 38,
+    "spacing": 0,
 
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
@@ -17,8 +17,7 @@
     },
 
     "clock": {
-        "format": " {:%H:%M}",
-        "format-alt": " {:%a, %d %b %Y}",
+        "format": "󰅐 {:%H:%M  ·  %a %d %b}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -35,47 +34,48 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "󰻠 {usage}%",
         "interval": 2,
-        "tooltip": true
+        "tooltip-format": "CPU: {usage}%\nFreq: {avg_frequency}GHz"
     },
     "memory": {
-        "format": " {percentage}%",
-        "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
+        "format": "󰍛 {percentage}%",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G ({percentage}%)",
         "interval": 5
     },
     "temperature": {
-        "format": " {temperatureC}°C",
+        "format": "󰔄 {temperatureC}°C",
         "critical-threshold": 80,
-        "format-critical": " {temperatureC}°C"
+        "format-critical": "󰸁 {temperatureC}°C"
     },
     "custom/gpu": {
         "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu,memory.used,memory.total --format=csv,noheader,nounits | awk -F', ' '{printf \"%s%% %s°C %sMB/%sMB\", $1, $2, $3, $4}'",
-        "format": "󰍛 {}",
+        "format": "󰾲 {}",
         "interval": 3,
         "tooltip": false
     },
     "disk": {
-        "format": " {percentage_used}%",
-        "tooltip-format": "{used} / {total} em {path}",
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "{used} / {total} ({percentage_used}%) em {path}",
         "path": "/"
     },
     "network": {
-        "format-wifi": " {essid}  {bandwidthDownBytes}  {bandwidthUpBytes}",
-        "format-ethernet": " {ifname}  {bandwidthDownBytes}  {bandwidthUpBytes}",
-        "format-disconnected": "󰖪 off",
+        "format-wifi": "󰤨 {essid}  ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
+        "format-ethernet": "󰈀 {ifname}  ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
+        "format-disconnected": "󰤭 desconectado",
         "interval": 2,
-        "tooltip-format": "{ipaddr} via {gwaddr}"
+        "tooltip-format": "{ipaddr} via {gwaddr}\n{signalStrength}% sinal"
     },
     "pulseaudio": {
-        "format": " {volume}%",
+        "format": "󰕾 {volume}%",
         "format-muted": "󰝟 mudo",
         "on-click": "pavucontrol"
     },
     "battery": {
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-charging": "󰂄 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{capacity}% — {timeTo}",
         "states": {
             "warning": 30,
             "critical": 15
