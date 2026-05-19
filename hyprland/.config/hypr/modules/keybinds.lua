@@ -28,3 +28,8 @@ hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("fuzzel"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprcap shot region -c -w"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprcap shot monitor:active -c -w"))
 hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprcap shot window:active -c -w"))
+
+--Lockscreen
+
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
