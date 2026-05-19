@@ -1,5 +1,6 @@
 require("modules/env")
 require("modules/autostart")
+require("modules/monitors")
 
 hl.config({
     input = {

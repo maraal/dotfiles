@@ -76,6 +76,20 @@ dotfiles/
 └── zsh/            # Shell (p10k, nvm, uv)
 ```
 
+## Monitors
+
+| Name | Output | Resolution | Hz | Scale | Position |
+|------|--------|------------|----|-------|----------|
+| Dell P2319H | `HDMI-A-2` | 1920×1080 | 60 | 1.0× | `0x0` (top) |
+| Notebook internal | `eDP-1` | 1920×1080 | 165 | 1.5× | `320x1080` (bottom) |
+
+Configured in `hyprland/.config/hypr/modules/monitors.lua` using `hl.monitor()` (hyprland-lua API).
+
+To adapt for different monitors:
+- Find output names: `hyprctl monitors`
+- Hyprland monitor reference: <https://wiki.hyprland.org/Configuring/Monitors/>
+- Lua API stubs: `/usr/share/hypr/stubs/hl.meta.lua`
+
 ## Keybinds (Hyprland)
 
 | Key | Action |
