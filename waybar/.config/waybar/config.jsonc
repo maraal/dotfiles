@@ -60,10 +60,11 @@
         "path": "/"
     },
     "network": {
-        "format-wifi": "󰤨 {essid}  ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
-        "format-ethernet": "󰈀 {ifname}  ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
+        "format-wifi": "{icon} {essid}  {signalStrength}%",
+        "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "󰤭 desconectado",
-        "interval": 2,
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "interval": 5,
         "tooltip-format": "{ipaddr} via {gwaddr}\n{signalStrength}% sinal"
     },
     "pulseaudio": {
